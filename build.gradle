@@ -1,0 +1,63 @@
+plugins {
+    id 'org.springframework.boot' version '2.4.2'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'war'
+}
+
+group = 'org.starrier'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '15'
+
+repositories {
+    mavenLocal()
+    maven { url "http://maven.aliyun.com/nexus/content/groups/public/"}
+    mavenCentral()
+    jcenter()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+    maven { url 'http://oss.jfrog.org/artifactory/oss-snapshot-local/' }
+}
+
+dependencies {
+
+    implementation 'org.springframework.boot:spring-boot-starter-data-r2dbc'
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+
+    // https://mvnrepository.com/artifact/org.starrier/commons
+    compile group: 'org.starrier', name: 'commons', version: '0.0.2-SNAPSHOT'
+    // https://mvnrepository.com/artifact/javax.inject/javax.inject
+    compile group: 'javax.inject', name: 'javax.inject', version: '1'
+    // https://mvnrepository.com/artifact/org.projectlombok/lombok
+    compile group: 'org.projectlombok', name: 'lombok', version: '1.18.18'
+
+
+    // https://mvnrepository.com/artifact/dev.miku/r2dbc-mysql
+    compile group: 'dev.miku', name: 'r2dbc-mysql', version: '0.8.2.RELEASE'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-mongodb-reactive
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-mongodb-reactive', version: '2.4.2'
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-redis-reactive
+    compile group: 'org.springframework.boot', name: 'spring-boot-starter-data-redis-reactive', version: '2.4.2'
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.23'
+    // https://mvnrepository.com/artifact/io.r2dbc/r2dbc-pool
+    compile group: 'io.r2dbc', name: 'r2dbc-pool', version: '0.8.5.RELEASE'
+
+
+    // https://mvnrepository.com/artifact/com.querydsl/querydsl-mongodb
+    compile group: 'com.querydsl', name: 'querydsl-mongodb', version: '4.4.0'
+    // https://mvnrepository.com/artifact/com.querydsl/querydsl-apt
+    compile group: 'com.querydsl', name: 'querydsl-apt', version: '4.4.0'
+
+
+
+    annotationProcessor 'org.projectlombok:lombok:1.18.18'
+    compileOnly 'org.projectlombok:lombok:1.18.18'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'io.projectreactor:reactor-test'
+}
+
+test {
+    useJUnitPlatform()
+}

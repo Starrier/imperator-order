@@ -1,0 +1,10 @@
+spring:
+  r2dbc:
+    url: r2dbcs:mysql://127.0.0.1:3306/imperator
+    username: root
+    password: 123456
+  application:
+    name: imperator-order
+mybatis:
+  config-location: classpath:mybatis-config.xml
+  mapper-locations: classpath:mybatis/*Mapper.xml
